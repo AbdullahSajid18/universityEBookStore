@@ -1,13 +1,13 @@
-
-
-import { Button } from "@/components/ui/button";
+import BookList from "@/components/BookList";
+import BookOverview from "@/components/BookOverview";
 
 const Home = () => {
-  <>
-    <Button >Click Me</Button>
-  </>
-
+  return (
+    <>
+      <BookOverview />
+      <BookList />
+    </>
+  );
 };
-
 
 export default Home;
