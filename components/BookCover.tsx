@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import BookCoverSvg from "./BookCoverSvg";
 
-const variantStyles: Record<BookCoverVarient, string> = {
+
+const variantStyles: Record<BookCoverVariant, string> = {
   extraSmall: "book-cover_extra_small",
   small: "book-cover_small",
   medium: "book-cover_medium",
@@ -11,22 +13,27 @@ const variantStyles: Record<BookCoverVarient, string> = {
 
 const BookCover = ({
   className,
-  varient = "regular",
+  variant = "regular",
   coverColor = "#012B48",
-  coverUrl = "https://placehold.co/600x400.png",
+  coverImage = "https://placehold.co/600x400.png",
 }: BookCoverProps) => {
   return (
     <div
       className={cn(
         "relative transition-all duration-300",
-        variantStyles[varient],
+        variantStyles[variant],
         className
       )}
     >
-      Book Side SVG
+      <BookCoverSvg  coverColor={coverColor}/>
 
       <div className="absolute z-10" style={{left: '12%', width: '87.5%', height: '88%'}}>
-        <Image />
+        <Image 
+         src={coverImage}
+         alt="Book Cover"
+         fill
+         className="rounded-sm object-fill"
+        />
       </div>
     </div>
   );
