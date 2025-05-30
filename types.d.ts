@@ -23,9 +23,12 @@ interface BookCoverProps {
   coverImage: string;
 }
 
-
 interface BookListProps {
   title: string;
   books: BookProps[];
-  containerClassName?: string
+  containerClassName?: string;
+}
+
+interface AuthFormProps<T extends FieldValues> {
+
 }
