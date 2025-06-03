@@ -2,7 +2,7 @@
 
 import { toast } from "@/hooks/use-toast";
 import config from "@/lib/config";
-import { IKImage, ImageKitProvider, IKUpload, IKVideo } from "imagekitio-next";
+import { IKImage, ImageKitProvider, IKUpload } from "imagekitio-next";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
@@ -102,7 +102,9 @@ const ImageUpload = ({
           width={500}
           height={500}
         />
+        
       )}
+      <p>commit</p>
     </ImageKitProvider>
   );
 };
