@@ -104,7 +104,6 @@ const ImageUpload = ({
         />
         
       )}
-      <p>commit</p>
     </ImageKitProvider>
   );
 };
