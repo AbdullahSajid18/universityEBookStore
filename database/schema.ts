@@ -1,4 +1,4 @@
-import { timestamp } from "drizzle-orm/mysql-core";
+import { timestamp } from "drizzle-orm/pg-core";
 import {
     date,
   integer,
@@ -30,6 +30,8 @@ export const users = pgTable("users", {
   status: STATUS_ENUM('status').default('PENDING'),
   role: ROLE_ENUM('role').default('USER'),
   lastActivityDate: date('last_activity_date').notNull().defaultNow(),
-  createdAt: timestamp('created_at').defaultNow(),
+  createdAt: timestamp('created_at', {
+    withTimezone: true,
+  }).defaultNow(),
 
 });
