@@ -38,3 +38,11 @@ interface AuthFormProps<T extends FieldValues> {
   type: "SIGN_IN" | "SIGN_UP";
 
 }
+
+interface AuthCredentials {
+  fullName: string;
+  email: string;
+  password: string;
+  universityId: number;
+  universityCard: string;
+}
