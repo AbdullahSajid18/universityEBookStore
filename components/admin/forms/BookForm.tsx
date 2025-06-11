@@ -18,6 +18,7 @@ import { z } from "zod";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/FileUpload";
+import ColorPicker from "@/components/admin/ColorPicker";
 
 const BookForm = ({ type, ...book }: BookFormProps) => {
   const router = useRouter();
@@ -178,7 +179,9 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
               <FormLabel className="text-base font-normal text-dark-500">
                 Primary Color
               </FormLabel>
-              <FormControl>{/* Color Picker Component */}</FormControl>
+              <FormControl>
+                <ColorPicker onPickerChange={field.onChange} value={field.value} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}

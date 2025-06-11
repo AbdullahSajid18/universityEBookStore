@@ -34,9 +34,8 @@ interface BookListProps {
 interface AuthFormProps<T extends FieldValues> {
   schema: ZodType<T>;
   defaultValues: T;
-  onSubmit: (data: T) => Promise<{success: boolean, error?: string}>;
+  onSubmit: (data: T) => Promise<{ success: boolean; error?: string }>;
   type: "SIGN_IN" | "SIGN_UP";
-
 }
 
 interface AuthCredentials {
@@ -47,16 +46,20 @@ interface AuthCredentials {
   universityCard: string;
 }
 
-
 interface BookFormProps extends Partial<Book> {
-  type?: 'create' | 'update';
+  type?: "create" | "update";
 }
 
 interface FileUploadProps {
-  type: 'image' | 'video';
+  type: "image" | "video";
   accept: string;
   placeholder: string;
   folder: string;
-  variant: 'dark' | 'light';
+  variant: "dark" | "light";
   onFileChange: (filePath: string) => void;
+}
+
+interface ColorPickerProps {
+  value?: string;
+  onPickerChange: (color: string) => void;
 }
