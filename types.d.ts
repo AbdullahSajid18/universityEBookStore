@@ -51,3 +51,12 @@ interface AuthCredentials {
 interface BookFormProps extends Partial<Book> {
   type?: 'create' | 'update';
 }
+
+interface FileUploadProps {
+  type: 'image' | 'video';
+  accept: string;
+  placeholder: string;
+  folder: string;
+  variant: 'dark' | 'light';
+  onFileChange: (filePath: string) => void;
+}
