@@ -46,3 +46,8 @@ interface AuthCredentials {
   universityId: number;
   universityCard: string;
 }
+
+
+interface BookFormProps extends Partial<Book> {
+  type?: 'create' | 'update';
+}
