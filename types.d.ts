@@ -57,9 +57,24 @@ interface FileUploadProps {
   folder: string;
   variant: "dark" | "light";
   onFileChange: (filePath: string) => void;
+  value?: string;
 }
 
 interface ColorPickerProps {
   value?: string;
   onPickerChange: (color: string) => void;
+}
+
+interface BookParams {
+  title: string;
+  author: string;
+  genre: string;
+  rating: number;
+  coverUrl: string;
+  coverColor: string;
+  description: string; 
+  totalCopies: number;
+  videoUrl: string;
+  summary: string;
+
 }
