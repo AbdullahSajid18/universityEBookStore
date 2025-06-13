@@ -1,3 +1,4 @@
+import { BookListProps } from "@/types"
 import BookCard from "./BookCard"
 
 

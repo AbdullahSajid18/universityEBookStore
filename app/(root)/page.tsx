@@ -10,11 +10,19 @@ const Home = async () => {
 
   return (
     <>
-      <BookOverview {...sampleBooks[0]} />
+      <BookOverview 
+        {...sampleBooks[0]} 
+        color={sampleBooks[0].coverColor} 
+        video={sampleBooks[0].videoUrl} 
+      />
       <BookList 
        title= 'Latest Books'
-       books= {sampleBooks}
-       containerClasssName= 'mt-28'
+       books= {sampleBooks.map(book => ({
+         ...book,
+         color: book.coverColor,
+         video: book.videoUrl
+       }))}
+       containerClassName= 'mt-28'
       />
     </>
   );

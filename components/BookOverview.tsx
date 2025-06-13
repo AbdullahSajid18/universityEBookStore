@@ -2,14 +2,15 @@ import Image from "next/image";
 import React from "react";
 import { Button } from "./ui/button";
 import BookCover from "./BookCover";
+import { BookProps } from "@/types";
 
 const BookOverview = ({
   title,
   author,
   genre,
   rating,
-  total_copies,
-  available_copies,
+  totalCopies,
+  availableCopies,
   description,
   color,
   coverUrl,
@@ -26,7 +27,7 @@ const BookOverview = ({
 
           <p>
             Category 
-            <span className="font-semibold text-light-200">{genre}</span>
+            <span className="font-semibold text-light-200"> {genre}</span>
           </p>
 
           <div className="flex flex-row gap-1">
@@ -37,10 +38,10 @@ const BookOverview = ({
 
         <div className="book-copies">
           <p>
-            Total Books: <span>{total_copies}</span>
+            Total Books: <span>{totalCopies}</span>
           </p>
           <p>
-            Available Books: <span>{available_copies}</span>
+            Available Books: <span>{availableCopies}</span>
           </p>
         </div>
         <p className="book-description">{description}</p>

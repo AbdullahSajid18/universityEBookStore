@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import FileUpload from "@/components/FileUpload";
 import ColorPicker from "@/components/admin/ColorPicker";
 import { createBook } from "@/lib/admin/actions/book";
+import { toast } from "@/hooks/use-toast";
 
 const BookForm = ({ type, ...book }: BookFormProps) => {
   const router = useRouter();
@@ -42,6 +43,21 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
 
   const onSubmit = async (values: z.infer<typeof bookSchema>) => {
     const result = await createBook(values);
+
+    if(result.success) {
+      toast({
+        title: "Success",
+        description: "Book added successfully!",
+      })
+
+      router.push(`/admin/books/${result.data.id}`);
+    }else {
+      toast({
+        title: 'Error',
+        description: result.message || "Failed to add book. Please try again.",
+        variant: 'destructive',
+      })
+    }
     
   };
 
@@ -57,6 +73,7 @@ const BookForm = ({ type, ...book }: BookFormProps) => {
                 Book Title
               </FormLabel>
               <FormControl>
+              <Input
                   required
                   placeholder="Book Title"
                   {...field}
