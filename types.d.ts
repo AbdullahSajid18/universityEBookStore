@@ -1,7 +1,7 @@
 import { ZodType } from "zod";
 
 interface BookProps {
-  id: number;
+  id: string;
   title: string;
   author: string;
   genre: string;
@@ -9,11 +9,11 @@ interface BookProps {
   totalCopies: number;
   availableCopies: number;
   description: string;
-  color: string;
+  coverColor: string;
   coverUrl: string;
-  video: string;
+  videoUrl: string;
   summary: string;
-  isLoanedBook?: boolean;
+  createdAt: Date | null;
 }
 
 type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide";
