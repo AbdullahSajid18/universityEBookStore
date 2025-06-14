@@ -15,6 +15,7 @@ interface BookProps {
   summary: string;
   createdAt: Date | null;
   isLoanedBook?: boolean; // Optional property for loaned books
+  userId?: string;
 }
 
 export type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide";
