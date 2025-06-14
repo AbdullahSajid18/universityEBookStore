@@ -4,6 +4,7 @@ import BookCover from "@/components/BookCover";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { BookProps } from "@/types";
 
 const BookCard = ({
   id,
@@ -12,7 +13,7 @@ const BookCard = ({
   coverColor,
   coverUrl,
   isLoanedBook = false,
-}: Book) => (
+}: BookProps) => (
   <li className={cn(isLoanedBook && "xs:w-52 w-full")}>
     <Link
       href={`/books/${id}`}

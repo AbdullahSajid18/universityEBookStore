@@ -14,6 +14,7 @@ interface BookProps {
   videoUrl: string;
   summary: string;
   createdAt: Date | null;
+  isLoanedBook?: boolean; // Optional property for loaned books
 }
 
 export type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide";
