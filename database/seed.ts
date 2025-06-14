@@ -1,5 +1,16 @@
 import dummyBooks from "@/dummybook.json";
 import ImageKit from "imagekit";
+import { books } from "@/database/schema";
+import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-http";
+import { config } from "dotenv";
+
+config({ path: ".env.local" });
+const sql = neon(process.env.DATABASE_URL!);
+
+export const db =  drizzle({client: sql} )
+
+
 
 const imageKit = new ImageKit({
     publicKey: process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY!,
@@ -30,15 +41,27 @@ const seed = async () => {
         book.coverUrl,
         `${book.title}.jpg`,
         "/books/covers"
-      );
+      ) as string;
 
       const videoUrl = await uploadToImageKit(
         book.videoUrl,
         `${book.title}.jpg`,
         "/books/videos"
-      );
+      ) as string;
+
+      await db.insert(books).values({
+        ...book,
+        coverUrl,
+        videoUrl,
+      })
     }
+
+    console.log('Data added successfully!');
+    
   } catch (error) {
     console.error("Error seeding data:", error);
   }
 };
+
+
+seed();

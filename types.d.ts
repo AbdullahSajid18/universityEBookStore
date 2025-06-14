@@ -16,11 +16,11 @@ interface BookProps {
   createdAt: Date | null;
 }
 
-type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide";
+export type BookCoverVariant = "extraSmall" | "small" | "medium" | "regular" | "wide";
 
 interface BookCoverProps {
   className?: string;
-  variant?: BookCoverVarient;
+  variant?: BookCoverVariant;
   coverColor: string;
   coverImage: string;
 }
